@@ -14,4 +14,4 @@ class Student:
 
     @property
     def full_name(self):
-        return f"{self.full_name} {self.last_name}"
+        return f"{self._first_name} {self._last_name}"
