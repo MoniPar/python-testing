@@ -9,8 +9,29 @@ If the number of even numbers is even, return True
 
 
 def even_number_of_evens(numbers):
-    return None
+    if isinstance(numbers, list):
+        if numbers == []:
+            return False
+        else:
+            evens = 0
+
+        for n in numbers:
+            # check if the number is even
+            if n % 2 == 0:
+                # if it is increment the evens variable
+                evens += 1
+
+        # if there are even numbers
+        if evens:
+            # check if the evens variable is an even number
+            # this will return True if the n of evens is even
+            return evens % 2 == 0
+        else:
+            return False
+
+    else:
+        raise TypeError("A list was not passed into the function")
 
 
 if __name__ == '__main__':
-    print(even_number_of_evens(5))
+    print(even_number_of_evens([5]))
