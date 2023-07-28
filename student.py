@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+import requests
 
 
 class Student:
@@ -27,3 +28,16 @@ class Student:
 
     def apply_extension(self, days):
         self.end_date = self.end_date + timedelta(days=days)
+
+    def course_schedule(self):
+        # make a get request to the fictional API to get the schedule
+        response = requests.get(
+            f"https://company.com/course-schedule/{self._last_name}/{self._first_name}"  # noqa
+        )
+
+        # return either the response text or an error message
+        # depending on whether the request was successful
+        if response.ok:
+            return response.text
+        else:
+            return "Something went wrong!"
